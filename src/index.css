@@ -1,0 +1,61 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/*colors variable*/
+:root{
+    --main_bg: #fff;
+    --page_color: #f7f7fb;
+    --input_color: #f0f2f5;
+    --line_color: #f0f2f5;
+    --primary_bg: #66717f;
+    --single_color: rgba(199, 40, 217, 1);
+    --secondary_bg: #28353e;
+    --hover_color: #f0f2f5;
+    --blur: rgba(255, 255, 255, 0.8);
+    --text_color: #333;
+    --primary_color: #1fa0ef;
+    --secondary_color: #848f95;
+    --title_color: #66717f;
+    --black: #29313d;
+    --white: #fff;
+    --white_100: #ddd;
+    --green: #21d997;
+    --blue: #5093f3;
+    --red: #e54953;
+    --yellow: #d9a94a;
+    --purple_100: #f3e8ff;
+    --pink_100: #fce7f3;
+    --cyan_100: #cffafe;
+}
+/*fontss variable*/
+
+@font-face {
+    font-family: "Gilroy Regular";
+    src: url(/social-media/src/assets/fonts/Gilroy-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Gilroy Medium";
+    src: url(/social-media/src/assets/fonts/Gilroy-Medium.ttf);
+}
+
+@font-face {
+    font-family: "Gilroy NormalItalic";
+    src: url(/social-media/src/assets/fonts/Gilroy-RegularItalic.ttf);
+}
+
+@font-face {
+    font-family: "Gilroy Bold";
+    src: url(/social-media/src/assets/fonts/Gilroy-Bold.ttf);
+}
+
+@font-face {
+    font-family: "Gilroy Semibold";
+    src: url(/social-media/src/assets/fonts/Gilroy-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: "Gilroy Light";
+    src: url(/social-media/src/assets/fonts/Gilroy-Light.ttf);
+}
