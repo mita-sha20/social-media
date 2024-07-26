@@ -19,12 +19,12 @@ export const LeftData = [
     {
         icon : Media,
         title : "Media",
-        to : "/"
+        to : "/media"
     },
     {
         icon : Message,
         title : "Message",
-        to : "/"
+        to : "/message"
     },
     {
         icon : Settings,

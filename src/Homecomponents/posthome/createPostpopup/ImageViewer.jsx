@@ -3,13 +3,20 @@ import EmojiPickers from './EmojiPickers'
 import { CircleCloseIcon } from '../../../svg/CircleCloseIcon';
 import { Media } from '../../../svg/Media';
 
-const ImageViewer = ({ text, setText , textRef , image , setImage , setShow }) => {
+const ImageViewer = ({ text, setText , textRef , image , setImage , setShow , setError }) => {
     const chooseFile = useRef(null);
     const handleImageUpload=(e)=>{
-      const file = Array.from(e.target.files);
+      let file = Array.from(e.target.files);
       file.forEach((img)=>{
         if(img.type !== "image/jpeg" && img.type !== "image/png" && img.type !== "image/webp" && img.type !== "image/gif"){
-            console.log("image not found")
+          file = file.filter((item)=> item.name !== img.name);
+          setError(`${img.name} unsupported files!`);
+          return
+        }
+        else if(img.size > 1024 * 1024 *5){
+          file = file.filter((item)=> item.name !== img.name);
+          setError(`${img.name} unsupported files!`);
+          return
         }
         const renderFiles = new FileReader()
         renderFiles.readAsDataURL(img)
@@ -23,10 +30,12 @@ const ImageViewer = ({ text, setText , textRef , image , setImage , setShow }) =
       <EmojiPickers text={text} setText={setText} textRef={textRef} changePart/>
       <div className='p-2 border border-line_color rounded-md mb-5'>
         <div className='w-full h-[350px] bg-white_100 rounded-md'>
-          <input type="file" multiple accept='image/jpeg,image/png,image/webp,image/gif' className='hidden' ref={chooseFile} onChange={handleImageUpload}/>
+          <input type="file" multiple 
+          accept='image/jpeg,image/png,image/webp,image/gif' 
+          className='hidden' ref={chooseFile} onChange={handleImageUpload}/>
           {
             image && image.length ? 
-            <div className='relative'>
+            <div className='relative h-full'>
               <div className='absolute top-3 left-3'>
               <div className='flex items-center gap-x-3 bg-white rounded-md p-2 cursor-pointer' onClick={()=>chooseFile.current.click()}>
                 <Media />

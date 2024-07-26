@@ -1,11 +1,10 @@
 import React from 'react'
-import { Helmet } from 'react-helmet-async'
 import Posthome from '../../Homecomponents/posthome/posthome'
 import Reauth from '../../components/reauth'
 import { useSelector } from 'react-redux'
+import { Helmet } from 'react-helmet-async'
 
-
-const Home = () => {
+const Home = ({setVisible,posts}) => {
   const {userInfo} = useSelector((state)=>
     state.registration);
   return (
@@ -17,7 +16,7 @@ const Home = () => {
         userInfo.verified === false && <Reauth userInfo={userInfo}/>
       }
         
-          <Posthome/>
+          <Posthome setVisible={setVisible} posts={posts}/>
         
     </>
   )

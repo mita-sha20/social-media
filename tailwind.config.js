@@ -25,7 +25,8 @@ export default {
      "white_100": "var(--white_100)",
      "purple_100": "var(--purple_100)",
      "pink_100": "var(--pink_100)",
-     "cyan_100":"var(--cyan_100)"
+     "cyan_100":"var(--cyan_100)",
+     transparent: "transparent"
     },
     fontFamily:{
       gilroyNormal : ['Gilroy Regular'],

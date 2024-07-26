@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ReduceText } from '../../../function/ReduceText';
 
 const RightFriends = () => {
-  const originalName = "Umme Taieba Mitasha"
+  const originalName = "Md sojib Mia"
   const reduceText = ReduceText(originalName, 11);
   
 

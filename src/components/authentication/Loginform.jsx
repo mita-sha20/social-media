@@ -29,7 +29,7 @@ const Loginform = ({ toast }) => {
       if(loginMutation?.error){
        toast.error(loginMutation?.error?.data?.message,{
          position: "top-right",
-         autoClose: 2000,
+         autoClose: 10000,
          hideProgressBar: true,
          pauseOnHover: false,
          theme: "light"
@@ -74,8 +74,9 @@ const { errors , touched } = formik;
 
             <div className='sm:flex mt-5 sm:mt-0 justify-between items-center'>
             <button type='submit' className='px-6 py-2 bg-secondary_bg rounded-full font-gilroyNormal text-white'>Login</button>
-            <p className='font-gilroyMedium xl:text-sm text-base 2xl:text-base'>Don't have an account?<Link to="/registration" className='text-primary_color underline'>Sign Up</Link></p>
+          <Link to="/forget" className='text-primary_color underline font-gilroyMedium xl:text-sm text-base 2xl:text-base'>Forget Password</Link>
             </div>
+            <p className='font-gilroyMedium xl:text-sm text-base 2xl:text-base 3xl:mt-5'>Don't have an account?<Link to="/registration" className='text-primary_color underline'>Sign Up</Link></p>
         </form>
     </>
   )

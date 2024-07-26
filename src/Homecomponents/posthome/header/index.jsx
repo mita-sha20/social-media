@@ -3,22 +3,36 @@ import { SearchIcon } from '../../../svg/SearchIcon';
 import Searchbox from './Searchbox';
 import OutsideClick from '../../../function/click';
 import { LeftData } from '../../lefthome/Data';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Lefthomedata from '../../lefthome/Lefthomedata';
 
-const Header = () => {
+const Header = ({location}) => {
     const [show , setShow] = useState(false);
     const clickoutSide = useRef(null);
+    const {username} = useParams()
 
+    const getTitle =()=>{
+      if(location.pathname === "/"){
+        return "News Feed"
+      }else if(location.pathname === "/friends"){
+        return "Friends"
+      }else if(location.pathname === "/profile"){
+        return "Profile"
+      }else if(location.pathname.startsWith('/profile/') && username){
+        return "Profile"
+      }else{
+        return "Social Media"
+      }
+    }
     OutsideClick(clickoutSide,()=>{
       setShow(false);
     })
 
   return (
     <>
-      <div className='flex items-center justify-between'>
+      <div className='flex items-center justify-between pb-10 bg-white py-3'>
         <div className=''>
-            <h4 className='font-gilroyBold text-2xl text-black hidden lg:block'>Feeds</h4>
+            <h4 className='font-gilroyBold text-2xl text-black hidden lg:block'>{getTitle()}</h4>
             <div className='lg:hidden w-16 h-16 rounded-full bg-cyan_100 mx-auto'></div>
         </div>
         <div className='lg:hidden flex items-center justify-center'>
@@ -33,7 +47,7 @@ const Header = () => {
          <div className='text-secondary_color cursor-pointer'><SearchIcon/>
          </div>
          <div className='hidden lg:block'>
-            <input type="text" placeholder='search' className='focus:outline-none font-gilroyNormal text-base w-full' />
+            <input type="text" placeholder='search' className='focus:outline-none font-gilroyNormal text-base w-full bg-transparent' />
          </div>
         </div> 
         <div className='z-10 absolute -top-6 -right-5 lg:left-[-40px]' ref={clickoutSide}>

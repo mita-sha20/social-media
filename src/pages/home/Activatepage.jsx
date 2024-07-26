@@ -33,6 +33,7 @@ const ActivatePage = () => {
           localStorage.setItem("user", JSON.stringify({...userInfo, verified: true}))
           diapatch(loggedInUsers({...userInfo, verified: true}))
           setTimeout(()=>{
+            setSuccess("")
             navigate('/')
           },3000)
       }catch(error){
